@@ -10,6 +10,7 @@
         <TextBlock HorizontalAlignment="Center" Margin="20,50,0,0" TextWrapping="Wrap" Text="Hello world!" VerticalAlignment="Top"/>
         <RadioButton x:Name="LeftButton" IsChecked="True" Content="Piggly"/>
         <RadioButton x:Name="RightButton" Content="Wiggly" Margin="116,0,-116,0"/>
+        <Image Name="ImageViewerMain" Height="400" Width="400"/>
         <Button Content="Press here" Margin="377,270,0,0" Width="75" Height="25" Click="Button_Click"/>
 
     </Grid>
