@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 
@@ -40,8 +41,15 @@ namespace Lila
             ImageViewerMain.Source = BytesToImage(imageData);
         }
 
-        private void OpenDirectoryDialog(object sender, RoutedEventArgs e)
+        private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
+            CommonOpenFileDialog dlg = new CommonOpenFileDialog();
+            dlg.InitialDirectory = Directory.GetCurrentDirectory();
+            dlg.IsFolderPicker = true;
+            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                MessageBox.Show("You selected: " + dlg.FileName);
+            }
 
         }
     }
