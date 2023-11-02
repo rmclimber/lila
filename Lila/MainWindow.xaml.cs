@@ -1,19 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.IO;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Lila.Properties;
 
 namespace Lila
 {
@@ -27,6 +14,17 @@ namespace Lila
             InitializeComponent();
         }
 
+        private BitmapImage BytesToImage(byte[] imageData)
+        {
+            var img = new BitmapImage();
+            var memoryStream = new MemoryStream(imageData);
+            img.BeginInit();
+            img.StreamSource = memoryStream;
+            img.CacheOption = BitmapCacheOption.OnLoad;
+            img.EndInit();
+            img.Freeze();
+            return img;
+        }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             byte[] imageData;
@@ -38,14 +36,13 @@ namespace Lila
             {
                 imageData = Properties.Resources.redcougar;
             }
-            var img = new BitmapImage();
-            var memoryStream = new MemoryStream(imageData);
-            img.BeginInit();
-            img.StreamSource = memoryStream;
-            img.CacheOption = BitmapCacheOption.OnLoad;
-            img.EndInit();
-            img.Freeze();
-            ImageViewerMain.Source = img;
+
+            ImageViewerMain.Source = BytesToImage(imageData);
+        }
+
+        private void OpenDirectoryDialog(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
