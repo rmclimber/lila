@@ -1,7 +1,9 @@
 ﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
+using System.Collections.Generic;
 
 namespace Lila
 {
@@ -14,6 +16,8 @@ namespace Lila
         {
             InitializeComponent();
         }
+
+        IEnumerable<string> filenames;
 
         private BitmapImage BytesToImage(byte[] imageData)
         {
@@ -49,6 +53,14 @@ namespace Lila
             if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 MessageBox.Show("You selected: " + dlg.FileName);
+
+                // create image filter
+                ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+                string img_filter = "Image Files|*.jpg;*.jpeg;*.png;";
+                EnumerationOptions options = new EnumerationOptions();
+                options.RecurseSubdirectories = true;
+                filenames = Directory.EnumerateFiles(dlg.FileName, img_filter, options); // TODO: currently broken due to improper filtering
+                FileListBox.ItemsSource = filenames;
             }
 
         }

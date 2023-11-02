@@ -12,7 +12,9 @@
         <RadioButton x:Name="RightButton" Content="Wiggly" Margin="116,0,-116,0"/>
         <Image Name="ImageViewerMain" Height="400" Width="400"/>
         <Button Content="Press here" Margin="377,270,0,0" Width="75" Height="25" Click="Button_Click"/>
-        <Button Content="Choose Directory" Margin="-377,270,0,0" Width="100" Height="25" Click="Button_Click"/>
+        <Button Content="Choose Directory" Margin="-377,270,0,0" Width="100" Height="25" Click="BrowseButton_Click"/>
+        <ListBox d:ItemsSource="{d:SampleData ItemCount=30}" Name="FileListBox" Margin="-650,0,0,0" Height="350" Width="150" SelectionMode="Single"/>
+        
 
     </Grid>
 </Window>
