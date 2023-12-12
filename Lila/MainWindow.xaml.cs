@@ -12,12 +12,17 @@ namespace Lila
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        // class members
+        IEnumerable<string> filenames;
+        FileNavigator navigator;
+
+        // constructor
         public MainWindow()
         {
             InitializeComponent();
+            navigator = new FileNavigator();
         }
-
-        IEnumerable<string> filenames;
 
         private BitmapImage BytesToImage(byte[] imageData)
         {
@@ -47,21 +52,8 @@ namespace Lila
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            CommonOpenFileDialog dlg = new CommonOpenFileDialog();
-            dlg.InitialDirectory = Directory.GetCurrentDirectory();
-            dlg.IsFolderPicker = true;
-            if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
-            {
-                MessageBox.Show("You selected: " + dlg.FileName);
-
-                // create image filter
-                ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
-                string img_filter = "Image Files|*.jpg;*.jpeg;*.png;";
-                EnumerationOptions options = new EnumerationOptions();
-                options.RecurseSubdirectories = true;
-                filenames = Directory.EnumerateFiles(dlg.FileName, img_filter, options); // TODO: currently broken due to improper filtering
-                FileListBox.ItemsSource = filenames;
-            }
+            
+            FileListBox.ItemsSource = navigator.ListFiles();
 
         }
     }
