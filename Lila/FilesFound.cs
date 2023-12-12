@@ -24,7 +24,7 @@ namespace Lila
             var output = new List<string>();
             foreach (var filename in filenames)
             {
-                output.Add(filename.Replace(dir, string.Empty));
+                output.Add(filename.Replace(dir + "\\", string.Empty));
             }
             return output;
         }
