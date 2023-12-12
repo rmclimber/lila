@@ -61,7 +61,7 @@ namespace Lila
             ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
             foreach (var codec in codecs)
             {
-                exts = exts.Union(codec.FilenameExtension.ToLower().Split(";"));
+                exts = exts.Union(codec.FilenameExtension.ToLower().Replace("*", "").Split(";"));
             }
 
             foreach (var ext in exts)
@@ -114,7 +114,13 @@ namespace Lila
             foreach (var filename in filenames)
             {
                 Console.WriteLine(String.Format("{0} -- {1}", filename, Path.GetExtension(filename.ToLower())));
-                Console.WriteLine(extensions.Any(ext => ext == Path.GetExtension(filename.ToLower())).ToString());
+                string currentExt = Path.GetExtension(filename.ToLower());
+                foreach (string ext in extensions)
+                {
+                    Console.WriteLine(String.Format("{0} {1} {2}", ext, currentExt, currentExt == ext));
+                }
+                Console.WriteLine(extensions.Any(ext => ext.Trim() == currentExt.Trim()).ToString());
+                break;
             }
 
             // filter with lambda function
