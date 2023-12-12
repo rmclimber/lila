@@ -13,9 +13,11 @@ namespace Lila
     internal class FileNavigator
     {
         private string imageFilter;
+        private IEnumerable<string> extensions;
         public FileNavigator()
         {
             imageFilter = CreateImageFilter();
+            extensions = CreateImageExtensions();
         }
 
         /*
@@ -52,6 +54,23 @@ namespace Lila
             return null;
         }
 
+        // creates an IEnumerable<string> to check file extensions
+        private IEnumerable<string> CreateImageExtensions()
+        {
+            IEnumerable<string> exts = new List<string>();
+            ImageCodecInfo[] codecs = ImageCodecInfo.GetImageEncoders();
+            foreach (var codec in codecs)
+            {
+                exts = exts.Union(codec.FilenameExtension.Split(";"));
+            }
+
+            foreach (var ext in exts)
+            {
+                Console.WriteLine(ext);
+            }
+            return exts;
+        }
+
         // Creates a string which can be used as a dialog file type filter
         private string CreateImageFilter()
         {
@@ -73,6 +92,7 @@ namespace Lila
                 // Add to filter
                 imageFilter = FormatFilterString(imageFilter, sep, codecName, codec.FilenameExtension);
                 sep = "|";
+                Console.WriteLine(codec.FilenameExtension);
             }
 
             imageFilter = FormatFilterString(imageFilter, sep, "All Files", "*.*");
@@ -84,8 +104,14 @@ namespace Lila
         private IEnumerable<string> RecurseEnumerateFiles(string path)
         {
             EnumerationOptions options = new EnumerationOptions();
+            var result = new List<string>();
             options.RecurseSubdirectories = true;
-            return Directory.EnumerateFiles(path, imageFilter, options);
+            var filenames = Directory.EnumerateFiles(path, "*.*", options);
+            foreach (var filename in filenames.Where(filename => extensions.Any(ext => ext == Path.GetExtension(filename))))
+            {
+                result.Add(filename);
+            }
+            return result;
         }
 
         // Simplify format syntax for filter string
