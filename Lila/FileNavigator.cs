@@ -13,6 +13,7 @@ namespace Lila
     internal class FileNavigator
     {
         private string imageFilter;
+        private string dir;
         private IEnumerable<string> extensions;
         public FileNavigator()
         {
@@ -20,7 +21,17 @@ namespace Lila
         }
 
         /*
-         * Limit 
+         * Return all images as as a FilesFound object.
+         */
+        internal FilesFound GetFiles()
+        {
+            IEnumerable<string> filenames = ListFiles();
+            FilesFound ff = new FilesFound(dir, filenames);
+            return ff;
+        }
+
+        /*
+         * List all image files in a parent directory and its child directories 
          */
         internal IEnumerable<string> ListFiles()
         {
@@ -31,9 +42,13 @@ namespace Lila
 
             if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
             {
-                MessageBox.Show("You selected: " + dlg.FileName);
+                // set parent dir
+                dir = dlg.FileName;
 
-                // get all files, including subdirectories
+                // inform user
+                MessageBox.Show("You selected: " + dir);
+
+                // get all image files, searching subdirectories
                 var filenames = RecurseEnumerateFiles(dlg.FileName);
                 return filenames;
 

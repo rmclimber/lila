@@ -8,8 +8,8 @@ namespace Lila
 {
     internal class FilesFound
     {
-        private IEnumerable<string> fullFilenames { get; set; }
-        private IEnumerable<string> truncFilenames { get; set; }
+        public IEnumerable<string> fullFilenames { get; set; }
+        public IEnumerable<string> truncFilenames { get; set; }
 
         public FilesFound(string dir, IEnumerable<string> filenames)
         {

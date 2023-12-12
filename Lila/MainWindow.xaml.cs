@@ -14,7 +14,7 @@ namespace Lila
     {
 
         // class members
-        IEnumerable<string> filenames;
+        FilesFound ff;
         FileNavigator navigator;
 
         // constructor
@@ -52,8 +52,8 @@ namespace Lila
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
         {
-            
-            FileListBox.ItemsSource = navigator.ListFiles();
+            ff = navigator.GetFiles();
+            FileListBox.ItemsSource = ff.truncFilenames;
 
         }
     }
