@@ -33,7 +33,20 @@ namespace Lila
                 MessageBox.Show("You selected: " + dlg.FileName);
 
                 // get all files, including subdirectories
-                return RecurseEnumerateFiles(dlg.FileName);
+                var filenames = RecurseEnumerateFiles(dlg.FileName);
+                if (filenames.Count() > 0)
+                {
+
+                    foreach (var filename in filenames)
+                    {
+                        Console.WriteLine(filename);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("no dice");
+                }
+                return filenames;
 
             }
             return null;
@@ -63,6 +76,7 @@ namespace Lila
             }
 
             imageFilter = FormatFilterString(imageFilter, sep, "All Files", "*.*");
+            Console.WriteLine(imageFilter);
             return imageFilter;
         }
 
@@ -81,7 +95,7 @@ namespace Lila
             string codecName,
             string extension)
         {
-            return String.Format("{0}{1}{2} ({3}){3}",
+            return String.Format("{0}{1}{2} ({3})|{3}",
                 filter,
                 sep,
                 codecName,
