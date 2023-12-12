@@ -12,25 +12,35 @@ namespace Lila
 {
     internal class FileNavigator
     {
+        private string imageFilter;
+        public FileNavigator()
+        {
+            imageFilter = CreateImageFilter();
+        }
+
         /*
          * Limit 
          */
         internal IEnumerable<string> ListFiles()
         {
+            // set up dialog box 
             CommonOpenFileDialog dlg = new CommonOpenFileDialog();
             dlg.InitialDirectory = Directory.GetCurrentDirectory();
             dlg.IsFolderPicker = true;
+
             if (dlg.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 MessageBox.Show("You selected: " + dlg.FileName);
 
-                var img_filter;
+                // get all files, including subdirectories
+                return RecurseEnumerateFiles(dlg.FileName);
+
             }
             return null;
         }
 
         // Creates a string which can be used as a dialog file type filter
-        internal string CreateImageFilter()
+        private string CreateImageFilter()
         {
             // cribbed from https://stackoverflow.com/a/9176575 
             // get codecs 
@@ -56,6 +66,14 @@ namespace Lila
             return imageFilter;
         }
 
+        // enumerate files and recurse subdirs
+        private IEnumerable<string> RecurseEnumerateFiles(string path)
+        {
+            EnumerationOptions options = new EnumerationOptions();
+            options.RecurseSubdirectories = true;
+            return Directory.EnumerateFiles(path, imageFilter, options);
+        }
+
         // Simplify format syntax for filter string
         private string FormatFilterString(
             string filter,
@@ -69,8 +87,5 @@ namespace Lila
                 codecName,
                 extension);
         }
-
-        // TODO: get all files
-        // TODO: return list of files
     }
 }
