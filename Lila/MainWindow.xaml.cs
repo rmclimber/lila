@@ -4,6 +4,8 @@ using System.IO;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Collections.Generic;
+using System.Linq;
+using System;
 
 namespace Lila
 {
@@ -48,6 +50,19 @@ namespace Lila
             }
 
             ImageViewerMain.Source = BytesToImage(imageData);
+        }
+
+        private void Display_Selected(object sender, RoutedEventArgs e)
+        {
+            byte[] imageData;
+            var currentIndex = FileListBox.SelectedIndex;
+            string filename = ff.fullFilenames.ElementAt(currentIndex);
+            var uri = new Uri(filename);
+            ImageViewerMain.Source = new BitmapImage(uri);
+            //FileStream stream = new FileStream(filename,
+            //    FileMode.Open, FileAccess.Read);
+            //stream.Close();
+
         }
 
         private void BrowseButton_Click(object sender, RoutedEventArgs e)
