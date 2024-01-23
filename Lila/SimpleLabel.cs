@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CsvHelper;
+using CsvHelper.Configuration.Attributes;
 
 namespace Lila
 {
-    class SimpleLabel
+    public class SimpleLabel
     {
         [Name("name")]
         public string ImgName { get; set; }
