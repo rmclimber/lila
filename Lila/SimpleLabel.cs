@@ -8,8 +8,8 @@ namespace Lila
 {
     class SimpleLabel
     {
-        public int Label { get; set; }
         public string ImgName { get; set; }
         public string ImgPath { get; set; }
+        public int Label { get; set; }
     }
 }
