@@ -10,7 +10,7 @@ using System.Windows;
 
 namespace Lila
 {
-    internal class FileNavigator
+    public class FileNavigator
     {
         private string imageFilter;
         private string dir;
