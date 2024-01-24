@@ -10,6 +10,12 @@ namespace Lila
 {
     public class SimpleLabel
     {
+        public SimpleLabel(string name, string path, string label) 
+        {
+            ImgName = name;
+            ImgPath = path;
+            if (int.TryParse(label, out int l)) Label = l;
+        }
         [Name("name")]
         public string ImgName { get; set; }
         [Name("path")]
