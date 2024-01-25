@@ -12,19 +12,46 @@ namespace Lila
     {
         // instance members
         [Name("name")]
-        public string ImgName { get; set; }
+        public string ImgName 
+        { 
+            get { return ImgName; }
+            set
+            {
+                if (value.Length > 0) ImgName = value;
+                else throw new ArgumentException();
+            }
+        }
+
         [Name("path")]
-        public string ImgPath { get; set; }
+        public string ImgPath
+        {
+            get { return ImgPath; }
+            set
+            {
+                if (value.Length > 0) ImgPath = value;
+                else throw new ArgumentException();
+            }
+        }
+
         [Name("label")]
-        public int Label { get; set; }
-        
+        public string Label
+        {
+            get { return Label; }
+            set
+            {
+                if (int.TryParse(value, out int l)) Label = value;
+                else throw new ArgumentException();
+            }
+        }
+
 
         // constructor(s)
         public SimpleLabel(string name, string path, string label) 
         {
-            ImgName = name;
-            ImgPath = path;
-            if (int.TryParse(label, out int l)) Label = l;
+            this.ImgName = name;
+            this.ImgPath = path;
+            this.Label = label;
+            
         }
     }
 }
