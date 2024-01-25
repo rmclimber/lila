@@ -12,7 +12,7 @@ using CsvHelper.Configuration;
 
 namespace Lila
 {
-    class SimpleOutput
+    public class SimpleOutput
     {
         // core instance members
         // TODO: adjust getters/setters so that mismatch cannot occur
