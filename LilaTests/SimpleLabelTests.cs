@@ -21,12 +21,12 @@ namespace LilaTests
                 "", goodNameOrPath, goodPositive));
         }
         
-        /*[Test]
+        [Test]
         public void EmptyPath()
         {
             var ex = Assert.Throws<ArgumentException>(() => new SimpleLabel(
                 goodNameOrPath, "", goodPositive));
-        }*/
+        }
 
         
         [Test]
