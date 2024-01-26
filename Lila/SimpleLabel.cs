@@ -11,13 +11,19 @@ namespace Lila
     public class SimpleLabel
     {
         // instance members
+        // backing fields
+        private string _ImgName;
+        private string _ImgPath;
+        private string _Label;
+
+        // properties
         [Name("name")]
         public string ImgName 
         { 
-            get { return ImgName; }
+            get { return _ImgName; }
             set
             {
-                if (value.Length > 0) ImgName = value;
+                if (value.Length > 0) _ImgName = value;
                 else throw new ArgumentException();
             }
         }
@@ -25,10 +31,10 @@ namespace Lila
         [Name("path")]
         public string ImgPath
         {
-            get { return ImgPath; }
+            get { return _ImgPath; }
             set
             {
-                if (value.Length > 0) ImgPath = value;
+                if (value.Length > 0) _ImgPath = value;
                 else throw new ArgumentException();
             }
         }
@@ -36,10 +42,10 @@ namespace Lila
         [Name("label")]
         public string Label
         {
-            get { return Label; }
+            get { return _Label; }
             set
             {
-                if (int.TryParse(value, out int l)) Label = value;
+                if (int.TryParse(value, out int l)) _Label = value;
                 else throw new ArgumentException();
             }
         }
