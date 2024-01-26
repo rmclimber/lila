@@ -57,7 +57,6 @@ namespace Lila
             ImgName = name;
             ImgPath = path;
             Label = label;
-
         }
     }
 }

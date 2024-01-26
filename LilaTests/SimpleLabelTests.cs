@@ -36,5 +36,21 @@ namespace LilaTests
             Assert.That(sl.ImgName, Is.EqualTo(goodNameOrPath));
             Assert.That(sl.ImgPath, Is.EqualTo(goodNameOrPath));
         }
+
+        [Test]
+        public void BadFloatLabel()
+        {
+            var ex = Assert.Throws<ArgumentException>(() => new SimpleLabel(
+                goodNameOrPath, goodNameOrPath, badFloat));
+        }
+
+        [Test]
+        public void GoodIntLabels()
+        {
+            SimpleLabel sl = new SimpleLabel(goodNameOrPath, goodNameOrPath, goodPositive);
+            Assert.That(sl.Label, Is.EqualTo(goodPositive));
+            sl.Label = goodNegative;
+            Assert.That(sl.Label, Is.EqualTo(goodNegative));
+        }
     }
 }
