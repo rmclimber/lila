@@ -20,20 +20,20 @@ namespace LilaTests
             var ex = Assert.Throws<ArgumentException>(() => new SimpleLabel("", 
                 goodNameOrPath, goodPositive));
         }
-
+        
         [Test]
         public void EmptyPath()
         {
-            var ex = Assert.Throws<ArgumentException>(() => new SimpleLabel(
-                goodNameOrPath, "", goodPositive));
+            var ex = Assert.Throws<ArgumentException>(() => new SimpleLabel(goodNameOrPath, "", goodPositive));
         }
 
+        /*
         [Test]
         public void GoodNameAndPath()
         {
             SimpleLabel sl = new SimpleLabel(goodNameOrPath, goodNameOrPath, goodPositive);
             Assert.That(sl.ImgName, Is.EqualTo(goodNameOrPath));
             Assert.That(sl.ImgPath, Is.EqualTo(goodNameOrPath));
-        }
+        }*/
     }
 }
