@@ -55,11 +55,8 @@ namespace Lila
         public SimpleLabel(string name, string path, string label) 
         {
             ImgName = name;
-            Console.WriteLine("imgname written");
             ImgPath = path;
-            Console.WriteLine("imgpath written");
             Label = label;
-            Console.WriteLine("label written");
 
         }
     }
