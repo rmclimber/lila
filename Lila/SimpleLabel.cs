@@ -48,10 +48,13 @@ namespace Lila
         // constructor(s)
         public SimpleLabel(string name, string path, string label) 
         {
-            this.ImgName = name;
-            this.ImgPath = path;
-            this.Label = label;
-            
+            ImgName = name;
+            Console.WriteLine("imgname written");
+            ImgPath = path;
+            Console.WriteLine("imgpath written");
+            Label = label;
+            Console.WriteLine("label written");
+
         }
     }
 }
