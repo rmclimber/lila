@@ -1,7 +1,7 @@
 ﻿Lila
 1.0.0.0
 
-winexe
+exe
 C#
 .cs
 C:\data\rick\projects\lila\Lila\obj\Debug\net7.0-windows\
@@ -12,9 +12,9 @@ TRACE;DEBUG;NET;NET7_0;NETCOREAPP
 C:\data\rick\projects\lila\Lila\App.xaml
 11407045341
 
-5-439817819
-198-306949569
+101593564920
+210-1914644839
 MainWindow.xaml;
 
-False
+True
 

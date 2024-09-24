@@ -4,7 +4,7 @@ import "./styles.css";
 
 import App from "./App";
 
-const root = createRoot(document.getElementById("root"));
+const root = createRoot(document.getElementById("app_pane"));
 root.render(
   <StrictMode>
     <App />

@@ -1,7 +1,12 @@
+import { useState } from "react";
+
 
 function MainImage({ img_src }) {
     return (
-        <img src={img_src}/>
+        <>
+            <img src={img_src}/>
+            Image here
+        </>
     );
 }
 

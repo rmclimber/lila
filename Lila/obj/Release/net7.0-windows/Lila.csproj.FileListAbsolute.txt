@@ -18,3 +18,5 @@ C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\refint\Lila.dll
 C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\Lila.pdb
 C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\Lila.genruntimeconfig.cache
 C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\ref\Lila.dll
+C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\Lila.Properties.Resources.resources
+C:\data\rick\projects\lila\Lila\obj\Release\net7.0-windows\Lila.csproj.GenerateResource.cache

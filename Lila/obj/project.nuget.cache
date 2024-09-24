@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "oVaGxnPuMArABhMrPkfWvgopDlfYdV/v1K7h/CUXuP5Plt2e4ak+TJMmtKxNilUM45d/qI+UWTrjKJyzh7xqDQ==",
+  "dgSpecHash": "e9WJrMANRdD1hhQfEx/UovtMFyuBOW6HLMY8U3goV8Cu2xDofhaOuqo4vLQb+DZdRDDnd41F1XjWTrtUNz+pVw==",
   "success": true,
   "projectFilePath": "C:\\data\\rick\\projects\\lila\\Lila\\Lila.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\rm\\.nuget\\packages\\csvhelper\\30.0.1\\csvhelper.30.0.1.nupkg.sha512",
+    "C:\\Users\\rm\\.nuget\\packages\\microsoft-windowsapicodepack-core\\1.1.5\\microsoft-windowsapicodepack-core.1.1.5.nupkg.sha512",
+    "C:\\Users\\rm\\.nuget\\packages\\microsoft-windowsapicodepack-shell\\1.1.5\\microsoft-windowsapicodepack-shell.1.1.5.nupkg.sha512"
+  ],
   "logs": []
 }

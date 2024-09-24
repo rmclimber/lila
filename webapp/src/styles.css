@@ -19,8 +19,6 @@
   h3 {
     margin-top: 0;
     font-size: 18px;
-    text-align: center;
-    color: #00aadd;
   }
   
   h4 {
@@ -51,15 +49,29 @@
   }
   
   body {
-    font-family: sans-serif;
+    font-family: serif;
     margin: 20px;
     padding: 0;
-    background-color: #003355;
+    background-color: #dddddd;
     color: #88ccff;
   }
 
   .header {
-    color: #5555;
+    background-color: #003355;
+    text-align: center;
+    color: #00aadd;
+    margin: 20px;
+    margin-top: 50px;
+  }
+
+  .intro {
+    background-color: #003355;
+    margin: 20px;
+  }
+
+  .app {
+    background-color: #003355;
+    color: #5555
   }
   
   .square {
@@ -76,22 +88,3 @@
     text-align: center;
     width: 34px;
   }
-  
-  .board-row:after {
-    clear: both;
-    content: '';
-    display: table;
-  }
-  
-  .status {
-    margin-bottom: 10px;
-  }
-  .game {
-    display: flex;
-    flex-direction: row;
-  }
-  
-  .game-info {
-    margin-left: 20px;
-  }
-  
